@@ -411,7 +411,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
 # IFAA manager
-include vendor/xiaomi/sm8250-common-extra/ifaa.mk
+include vendor/xiaomi/sm8250-extra/ifaa.mk
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -747,11 +747,14 @@ PRODUCT_PACKAGES += \
     libwfdaac \
     libwfdaac_vendor
 
-include vendor/xiaomi/sm8250-common-extra/wfd.mk
+include vendor/xiaomi/sm8250-extra/wfd.mk
 
 # Wlan
 PRODUCT_CFI_INCLUDE_PATHS += \
     hardware/qcom-caf/wlan/qcwcn/wpa_supplicant_8_lib
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sm8250-common/sm8250-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sm8250/sm8250-vendor.mk)
+
+# Inherit from vendor blobs
+$(call inherit-product, vendor/xiaomi/alioth/alioth-vendor.mk)
